@@ -29,29 +29,10 @@ const char htmlInterface[] PROGMEM = R"rawliteral(
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 70%, #4facfe 100%);
+            background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
             min-height: 100vh;
             padding: 20px;
-            animation: backgroundShift 15s ease-in-out infinite alternate;
             overflow-x: hidden;
-        }
-        
-        @keyframes backgroundShift {
-            0% { 
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 70%, #4facfe 100%);
-            }
-            25% {
-                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 30%, #43e97b 70%, #38f9d7 100%);
-            }
-            50% {
-                background: linear-gradient(135deg, #fa709a 0%, #fee140 30%, #667eea 70%, #764ba2 100%);
-            }
-            75% {
-                background: linear-gradient(135deg, #a8edea 0%, #fed6e3 30%, #ffecd2 70%, #fcb69f 100%);
-            }
-            100% { 
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 70%, #4facfe 100%);
-            }
         }
         
         .floating-particles {
@@ -890,6 +871,24 @@ const char htmlInterface[] PROGMEM = R"rawliteral(
         setInterval(simulateStatus, 5000);
         updateTime();
         simulateStatus();
+
+        // --- Add this block for floating particles ---
+        function createParticles(count = 30) {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random() * 18 + 8;
+                p.style.width = `${size}px`;
+                p.style.height = `${size}px`;
+                p.style.left = `${Math.random() * 100}%`;
+                p.style.animationDuration = `${14 + Math.random() * 10}s`;
+                p.style.animationDelay = `${Math.random() * 10}s`;
+                p.style.background = `rgba(255,255,255,${0.15 + Math.random() * 0.25})`;
+                container.appendChild(p);
+            }
+        }
+        createParticles(32);
     </script>
 </body>
 </html>
