@@ -817,4 +817,79 @@
                         <h3>🏖️ Weekends (Sat-Sun)</h3>
                         <div class="time-input-group">
                             <label>Turn ON:</label>
-                            <input
+                                                        <input type="time" class="time-input" id="weekendOnTime" value="10:00">
+                        </div>
+                        <div class="time-input-group">
+                            <label>Turn OFF:</label>
+                            <input type="time" class="time-input" id="weekendOffTime" value="22:00">
+                        </div>
+                        <div class="time-input-group">
+                            <label>Enable:</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="weekendEnabled" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="save-button-container">
+                    <button class="btn btn-save" onclick="saveSchedule()">💾 Save Schedule</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification success slide-in" id="successNotification" style="display:none;">✅ Schedule saved successfully!</div>
+    <div class="notification error slide-in" id="errorNotification" style="display:none;">❌ Failed to save schedule!</div>
+    <div class="connection-status" id="connectionStatus">
+        <div class="connection-dot" id="connectionDot"></div>
+        <span id="connectionText">Connected</span>
+    </div>
+
+    <script>
+        function controlAC(action) {
+            console.log("Sending control command:", action);
+            // Implementation needed to send command to server or device
+        }
+
+        function refreshData() {
+            console.log("Refreshing data...");
+            // Implementation to refresh data from backend
+        }
+
+        function saveSchedule() {
+            console.log("Saving schedule...");
+            document.getElementById("successNotification").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("successNotification").classList.add("slide-out");
+                setTimeout(() => {
+                    document.getElementById("successNotification").style.display = "none";
+                    document.getElementById("successNotification").classList.remove("slide-out");
+                }, 400);
+            }, 2500);
+        }
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById("currentTime").innerText = timeString;
+        }
+
+        function simulateStatus() {
+            document.getElementById("acStatus").classList.toggle("off");
+            document.getElementById("systemStatus").classList.toggle("off");
+            document.getElementById("acStatusText").innerText = "AC Status: " + 
+                (document.getElementById("acStatus").classList.contains("off") ? "OFF" : "ON");
+            document.getElementById("systemStatusText").innerText = "System: " + 
+                (document.getElementById("systemStatus").classList.contains("off") ? "DISABLED" : "ENABLED");
+        }
+
+        setInterval(updateTime, 1000);
+        setInterval(simulateStatus, 5000);
+        updateTime();
+        simulateStatus();
+    </script>
+</body>
+</html>
+
