@@ -779,17 +779,32 @@ const char htmlInterface[] PROGMEM = R"rawliteral(
                     <div class="schedule-card">
                         <h3>📅 Weekdays (Mon-Fri)</h3>
                         <div class="time-input-group">
-                            <label>Turn ON:</label>
-                            <input type="time" class="time-input" id="weekdayOnTime" value="08:00">
+                            <label>Turn ON 1:</label>
+                            <input type="time" class="time-input" id="weekdayOnTime1" value="08:00">
                         </div>
                         <div class="time-input-group">
-                            <label>Turn OFF:</label>
-                            <input type="time" class="time-input" id="weekdayOffTime" value="18:00">
+                            <label>Turn OFF 1:</label>
+                            <input type="time" class="time-input" id="weekdayOffTime1" value="12:00">
                         </div>
                         <div class="time-input-group">
-                            <label>Enable:</label>
+                            <label>Enable 1:</label>
                             <label class="toggle-switch">
-                                <input type="checkbox" id="weekdayEnabled" checked>
+                                <input type="checkbox" id="weekdayEnabled1" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="time-input-group">
+                            <label>Turn ON 2:</label>
+                            <input type="time" class="time-input" id="weekdayOnTime2" value="14:00">
+                        </div>
+                        <div class="time-input-group">
+                            <label>Turn OFF 2:</label>
+                            <input type="time" class="time-input" id="weekdayOffTime2" value="18:00">
+                        </div>
+                        <div class="time-input-group">
+                            <label>Enable 2:</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="weekdayEnabled2" checked>
                                 <span class="slider"></span>
                             </label>
                         </div>
@@ -892,5 +907,4 @@ const char htmlInterface[] PROGMEM = R"rawliteral(
     </script>
 </body>
 </html>
-
 )rawliteral";
