@@ -1,27 +1,18 @@
-#include <IRremote.h>
+#include <IRremote.h>         // Include the IRremote library
 
-const int RECV_PIN = 4;
+#define IR_RECEIVE_PIN 2      // Define the pin where your IR receiver is connected
+
+IRrecv IR(IR_RECEIVE_PIN);    // Create an IRrecv object
 
 void setup() {
-  Serial.begin(115200);
-  delay(2000);
-  
-  Serial.println("Starting minimal IR test...");
-  Serial.print("Free heap: ");
-  Serial.println(ESP.getFreeHeap());
-  
-  // Simple initialization
-  IrReceiver.begin(RECV_PIN);
-  Serial.println("IR receiver initialized on pin 4");
+  Serial.begin(9600);         // Start the Serial Monitor
+  IR.enableIRIn();            // Start the receiver
 }
 
 void loop() {
-  if (IrReceiver.decode()) {
-    Serial.println("Signal received!");
-    Serial.print("Protocol: ");
-    Serial.println(IrReceiver.decodedIRData.protocol);
-    
-    IrReceiver.resume();
+  if (IR.decode()) {          // Check if an IR signal has been received
+    Serial.println(IR.decodedIRData.decodedRawData, HEX);  // Print raw data in HEX format
+    delay(1500);              // Optional delay (1.5 sec)
+    IR.resume();              // Prepare for the next signal
   }
-  delay(100);
 }
