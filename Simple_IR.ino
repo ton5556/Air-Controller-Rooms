@@ -1,18 +1,9 @@
-#include <IRremote.h>         // Include the IRremote library
+Protocol=PulseDistance Raw-Data=0x6000000 64 bits LSB first Gap=3276750us Duration=67450us
+Send on a 8 bit platform with: 
+    uint32_t tRawData[]={0x4E02002, 0x6000000};
+    IrSender.sendPulseDistanceWidthFromArray(38, 3500, 1650, 450, 1300, 450, 450, &tRawData[0], 64, PROTOCOL_IS_LSB_FIRST, <RepeatPeriodMillis>, <numberOfRepeats>);
 
-#define IR_RECEIVE_PIN 2      // Define the pin where your IR receiver is connected
-
-IRrecv IR(IR_RECEIVE_PIN);    // Create an IRrecv object
-
-void setup() {
-  Serial.begin(9600);         // Start the Serial Monitor
-  IR.enableIRIn();            // Start the receiver
-}
-
-void loop() {
-  if (IR.decode()) {          // Check if an IR signal has been received
-    Serial.println(IR.decodedIRData.decodedRawData, HEX);  // Print raw data in HEX format
-    delay(1500);              // Optional delay (1.5 sec)
-    IR.resume();              // Prepare for the next signal
-  }
-}
+Protocol=PulseDistance Raw-Data=0x6000000 64 bits LSB first Gap=3276750us Duration=67450us
+Send on a 8 bit platform with: 
+    uint32_t tRawData[]={0x4E02002, 0x6000000};
+    IrSender.sendPulseDistanceWidthFromArray(38, 3450, 1700, 450, 1300, 450, 400, &tRawData[0], 64, PROTOCOL_IS_LSB_FIRST, <RepeatPeriodMillis>, <numberOfRepeats>);
