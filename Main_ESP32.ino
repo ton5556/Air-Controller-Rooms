@@ -15,8 +15,8 @@ WebServer server(80);
 IRsend irsend(4); // IR LED connected to GPIO 4
 
 // IR signal examples
-uint16_t rawOnSignal[] = {9000, 4500, 600, 550, 600, 550};
-uint16_t rawOffSignal[] = {9000, 4500, 600, 550, 600, 550};
+uint16_t rawOnSignal[] = {38, 3500, 1650, 450, 1300, 450, 450};
+uint16_t rawOffSignal[] = {38, 3450, 1700, 450, 1300, 450, 400};
 
 bool acIsOn = false;
 bool systemEnabled = true;
