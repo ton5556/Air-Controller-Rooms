@@ -285,4 +285,7 @@ Future Enhancements
 - **Energy Monitoring**: Power consumption tracking
 - **Voice Control**: Integration with Alexa/Google Assistant
 - **Remote Access**: VPN or cloud connectivity options
-
+- 
+📄 License
+  Dev. https://github.com/crankyoldgit
+  Sincerely, David Conrad Library
